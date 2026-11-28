@@ -1,6 +1,8 @@
 package com.runmate.backend.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "runners")
@@ -15,6 +17,9 @@ public class Runner {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @JsonIgnore
+    private String password;
 
     private String city;
 
@@ -77,5 +82,13 @@ public class Runner {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public String getPassword() {
+    return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
